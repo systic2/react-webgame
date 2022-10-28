@@ -1,17 +1,16 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  name: 'wordrelay-setting',
-  mode: 'development', // 실서비스: production
-  devtool: 'eval',
+  mode: 'development',
+  devtool: 'eval', // hidden-source-map
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
 
   entry: {
-    app: ['./client'],
-  }, // 입력
-
+    app: './client',
+  },
   module: {
     rules: [{
       test: /\.jsx?$/,
@@ -28,9 +27,11 @@ module.exports = {
       }
     }],
   },
-
+  plugins: [
+    new webpack.LoaderOptionsPlugin({ debug: true }),
+  ],
   output: {
-    path: path.join(__dirname, 'dist'), // d:\react-webgame\
     filename: 'app.js',
-  }, // 출력
-};
+    path: path.join(__dirname, 'dist'), // d:\react-webgame\
+  },
+}
