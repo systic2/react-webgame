@@ -6,7 +6,7 @@ const Tr = ({ rowIndex, rowData, dispatch }) => {
     <tr>
       {Array(rowData.length)
       .fill()
-      .map((td, i) => <Td dispatch={dispatch} rowIndex={rowIndex} cellIndex={i} celldata={rowData[i]}></Td>)}
+      .map((td, i) => <Td dispatch={dispatch} rowIndex={rowIndex} cellIndex={i} cellData={rowData[i]}></Td>)}
     </tr>
   )
 }
